@@ -96,7 +96,7 @@ On the repository page: **Settings → General → Social preview → Edit → U
 
 ## Part D: publish the release (5 minutes)
 
-GitHub Actions can build releases automatically (`.github/workflows/release.yml`), but only while your account's Actions are working. Building on your PC and uploading works every time.
+Releases are built on your PC and uploaded with GitHub CLI. The repository has no GitHub Actions workflows, so pushes and tags never trigger runs.
 
 ### D1. Build and test (Part A)
 
