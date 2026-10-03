@@ -120,6 +120,8 @@ components:
 
 # Design System: Hatrack
 
+> The website was removed in 0.2.0. Website tokens and sections below are kept as a record and no longer ship.
+
 ## Overview
 
 The approved direction is monochrome, rounded, and precise, with the requested craft references of Apple and Revolut Wallet. The desktop implementation uses a shared custom WPF theme for buttons, dropdowns, inputs, sliders, checkboxes, expanders, list focus, and scrollbars. Practical headings and task labels establish the hierarchy. Colour belongs to profile marks and their picker, while product chrome remains black, white, and neutral grey.

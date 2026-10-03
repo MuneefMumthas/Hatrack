@@ -7,7 +7,7 @@
 - Untested Claude or Codex Desktop versions now ask for confirmation once per version instead of blocking launch.
 - The library and editor no longer start PowerShell every few seconds once desktop apps are detected.
 - The version shown in the app and diagnostics now comes from the build instead of a hard-coded string.
-- Website: search-focused titles and descriptions, FAQ, richer structured data, social previews, and Apple touch icon.
+- Removed the website. Its guides now live in `docs/guides`, and the README carries the FAQ and search-focused copy.
 - Three new regression checks (18 total).
 
 ## 0.1.1 preview

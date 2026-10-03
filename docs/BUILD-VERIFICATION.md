@@ -33,17 +33,7 @@ For desktop smoke checks on the recorded vendor versions, use a **new** folder w
 ./artifacts/publish/Hatrack.exe --smoke "$PWD/artifacts/Hatrack-smoke-new"
 ```
 
-For the website:
-
-```powershell
-cd website
-npm ci
-npm run build
-npm run check:links
-npm exec playwright install chromium
-```
-
-Run the preview server, then `node scripts/verify.mjs` in another terminal for browser checks. That developer helper renders the social image and captures screenshots; runtime installation requires none of these tools.
+The website was removed in 0.2.0; its guides are in `docs/guides`.
 
 ## Required before a stable release
 
@@ -51,7 +41,7 @@ Run the preview server, then `node scripts/verify.mjs` in another terminal for b
 - Fresh-machine installation, version upgrade, vendor-update behaviour, pinned taskbar customization, Narrator, keyboard-only onboarding, high contrast, and the full display-scaling matrix need the recorded checks in [ACCEPTANCE.md](ACCEPTANCE.md).
 - Transactional creation provides atomic metadata commits and rollback for caught failures. It is not a durable cross-file transaction after power loss; interrupted creation needs acceptance testing before stable publication.
 - Detected vendor versions outside the embedded evidence ask for confirmation once per version before launch. Re-test and update the evidence through a new Hatrack release; do not erase data or downgrade vendor apps as a repair.
-- Installer signatures and public download/Pages URLs require the owner's publication steps. No release or website has been publicly published by this implementation.
+- Installer signatures and public download URLs require the owner's publication steps. No release or website has been publicly published by this implementation.
 
 Compare the installer against `dist/SHA256SUMS.txt` before distribution. Retain signing status and these limitations in release notes.
 

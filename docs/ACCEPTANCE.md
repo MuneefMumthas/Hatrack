@@ -17,7 +17,7 @@ Only mark `releaseReady: true` after recording all applicable results with the e
 - [ ] Imported profiles retain original data and shortcuts; unsupported credential stores fail closed.
 - [ ] Keyboard-only flow, Narrator labels, high contrast, 100/150/200% scaling, light/dark themes verified.
 - [ ] Uploaded malformed and oversized images fail safely; supported images preserve transparency and crop.
-- [ ] Website screenshot is current; download links point to real release assets; metadata matches actual support.
+- [ ] README screenshots are current; download links point to real release assets; claims match actual support.
 - [ ] Signing status, known limitations, checksums, and notices documented.
 
 Record independent-authentication verification for each app in `compatibility.json`. A release manager must review the evidence; changing a boolean without evidence does not satisfy this gate.

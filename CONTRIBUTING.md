@@ -6,7 +6,7 @@ Hatrack manages Windows desktop sessions, not CLI profiles. Use Windows 11 x64 a
 dotnet run --project tests/Hatrack.Tests -c Release
 ```
 
-For the website, use Node 22.12+, run `npm ci` in `website`, then `npm run build`. Build the installer with `scripts/build.ps1` and Inno Setup 6.
+Build the installer with `scripts/build.ps1` and Inno Setup 6.
 
 Tests use a disposable temporary catalogue and shortcuts; never test destructive operations against your real account folders. Do not commit tokens, local diagnostics, user history, uploaded private artwork, or profile catalogues.
 

@@ -1,6 +1,6 @@
 # From zero to a published release, step by step
 
-Everything below assumes the repository will be `github.com/MuneefMumthas/hatrack` and that you run commands in **PowerShell** from the project folder (`profile creator`). Each step says what you should see. Stop and fix anything that doesn't match before moving on.
+Everything below assumes the repository will be `github.com/MuneefMumthas/hatrack` and that you run commands in **PowerShell** from the project folder (`Hatrack`). Each step says what you should see. Stop and fix anything that doesn't match before moving on.
 
 ---
 
@@ -8,7 +8,7 @@ Everything below assumes the repository will be `github.com/MuneefMumthas/hatrac
 
 ### A1. Open PowerShell in the project folder
 
-In File Explorer, open the `profile creator` folder, click the address bar, type `powershell` and press Enter.
+In File Explorer, open the `Hatrack` folder, click the address bar, type `powershell` and press Enter.
 
 ### A2. Run the tests
 
@@ -60,7 +60,7 @@ git commit -m "Hatrack 0.2.0 preview"
 ### B3. Create the public repository and upload
 
 ```powershell
-gh repo create MuneefMumthas/hatrack --public --source . --remote origin --push --description "Run multiple Claude Desktop and Codex accounts on Windows. Open a second account without signing out: separate profiles, shortcuts and taskbar icons. Free and open source." --homepage "https://muneefmumthas.github.io/hatrack/"
+gh repo create MuneefMumthas/hatrack --public --source . --remote origin --push --description "Run multiple Claude Desktop and Codex accounts on Windows. Open a second account without signing out: separate profiles, shortcuts and taskbar icons. Free and open source."
 ```
 
 Open https://github.com/MuneefMumthas/hatrack. You should see the README with the hat logo.
@@ -88,40 +88,36 @@ gh repo edit MuneefMumthas/hatrack --enable-discussions --add-topic claude,claud
 
 On the repository page: **Settings → General → Social preview → Edit → Upload an image**, and choose `docs\images\social-preview.png`. This is the card shown when the link is shared on LinkedIn, X, Slack and similar.
 
-### C3. Turn on the website
-
-1. **Settings → Pages → Build and deployment → Source:** choose **GitHub Actions**.
-2. Open the **Actions** tab. Wait for **Website** and **Checks** to turn green (about 3 minutes). If **Website** ran before you changed the setting and failed, open it and click **Re-run all jobs**.
-3. Visit https://muneefmumthas.github.io/hatrack/. You should see the Hatrack homepage.
-
-### C4. Security reporting
+### C3. Security reporting
 
 **Settings → Code security → Private vulnerability reporting → Enable.**
 
 ---
 
-## Part D: publish the release (10 minutes)
+## Part D: publish the release (5 minutes)
 
-### D1. Tag the version
+GitHub Actions can build releases automatically (`.github/workflows/release.yml`), but only while your account's Actions are working. Building on your PC and uploading works every time.
+
+### D1. Build and test (Part A)
+
+You need `dist\Hatrack-Setup.exe` and `dist\SHA256SUMS.txt` from a run of A2 to A3 that passed.
+
+### D2. Tag the version
 
 ```powershell
-git tag v0.2.0-preview.1
+git tag -a v0.2.0-preview.1 -m "Hatrack 0.2.0 preview 1"
 git push origin v0.2.0-preview.1
 ```
 
-The `-preview` part matters. It makes GitHub build a pre-release. A plain `v1.0.0` tag refuses to build until signed-in isolation is verified, and that's on purpose.
+### D3. Upload and publish
 
-### D2. Wait for the build
+Write the release notes in a file such as `release-notes.md` (example below; don't commit it), then:
 
-**Actions → Draft Windows release.** This takes about 10 minutes. It runs the tests, builds the installer, and installs and uninstalls it on a clean Windows machine. It must finish green.
+```powershell
+gh release create v0.2.0-preview.1 dist\Hatrack-Setup.exe dist\SHA256SUMS.txt dist\THIRD-PARTY-NOTICES.md compatibility.json docs\BUILD-VERIFICATION.md --verify-tag --latest --title "Hatrack v0.2.0 preview" --notes-file release-notes.md
+```
 
-### D3. Check the draft
-
-Open **Releases** (right-hand side of the repository page). Click the draft **Hatrack v0.2.0-preview.1**. It should list `Hatrack-Setup.exe`, `SHA256SUMS.txt`, `THIRD-PARTY-NOTICES.md`, `compatibility.json` and `BUILD-VERIFICATION.md`. Download `Hatrack-Setup.exe` from there and install it once.
-
-### D4. Write the notes and publish
-
-Click **Edit** (pencil), replace the notes with the text below, keep **Set as a pre-release** ticked, and click **Publish release**.
+`--latest` without `--prerelease` keeps the README's **Download** button working, because GitHub's "latest" link skips pre-releases. The notes still say it's a preview.
 
 ```markdown
 ## Hatrack 0.2.0 preview
@@ -130,51 +126,27 @@ Run multiple Claude Desktop and Codex Desktop accounts on Windows 11. Use a seco
 
 **Download:** Hatrack-Setup.exe below. No .NET, Node or terminal needed.
 
-### What's new
-- New name and logo (formerly Profiles). Existing profiles, shortcuts and taskbar pins keep working.
-- Untested Claude or Codex versions now ask once instead of blocking.
-- Lower background CPU use.
-
 ### Known limitations
 - Preview: independent signed-in sessions are still going through acceptance checks.
-- Tested with Claude Desktop 2.19675.0.0 and Codex Desktop 26.930.2377.0.
 - The installer is not code-signed. Windows SmartScreen may warn: More info, then Run anyway. Check the file against SHA256SUMS.txt.
 ```
 
-The README's **Download** link (`/releases/latest`) points to the newest full release, not to pre-releases. Until you publish a full release, people get there through **Releases**. If you want `/releases/latest` to work now, untick **Set as a pre-release**. The preview warning stays in the notes and the README.
+### D4. Check it
+
+Open https://github.com/MuneefMumthas/hatrack/releases/latest and click `Hatrack-Setup.exe`. It should download.
 
 ---
 
-## Part E: get indexed by Google and Bing (15 minutes, once)
+## Part E: getting found on Google (no website needed)
 
-GitHub pages get indexed on their own, usually within a few days of the repository getting its first links and stars. The website needs registering.
+Google indexes GitHub repositories, READMEs and the Markdown files in `docs/guides`. What helps:
 
-### E1. Google Search Console
+1. **The description and topics** (B3, C1). Google uses the description as the snippet for the repo.
+2. **Links to the repo.** Every launch post, article and forum answer that links to `github.com/MuneefMumthas/hatrack` helps it rank. See [LAUNCH.md](LAUNCH.md).
+3. **Stars and activity.** Releases, issues and commits show the project is alive.
+4. **Share card.** Paste the repository URL into LinkedIn's Post Inspector (https://www.linkedin.com/post-inspector/) to check the social preview image.
 
-1. Go to https://search.google.com/search-console and click **Add property**. Choose **URL prefix** and enter `https://muneefmumthas.github.io/hatrack/`.
-2. Pick **HTML tag** verification. Copy only the `content="..."` value.
-3. On GitHub: **Settings → Secrets and variables → Actions → Variables → New repository variable**. Name: `GOOGLE_SITE_VERIFICATION`. Value: the copied code.
-4. **Actions → Website → Run workflow.** When it's green, click **Verify** in Search Console.
-5. In Search Console, **Sitemaps** → submit `https://muneefmumthas.github.io/hatrack/sitemap.xml`.
-6. **URL inspection** → paste the homepage URL → **Request indexing**. Repeat for `/hatrack/guides/second-claude-account/`.
-
-### E2. Bing Webmaster Tools (also feeds DuckDuckGo, Yahoo and Copilot)
-
-Go to https://www.bing.com/webmasters, sign in, and choose **Import from Google Search Console**. If you'd rather verify separately, use the meta tag method with a repository variable named `BING_SITE_VERIFICATION`, the same way as E1.
-
-### E3. Optional: a root robots.txt
-
-Crawlers only read `robots.txt` at the root of a domain. Yours (`muneefmumthas.github.io`) comes from the `MuneefMumthas.github.io` repository, which has none, so everything is allowed. That's fine. To point crawlers at Hatrack's sitemap as well, add a file named `robots.txt` to that repository containing:
-
-```text
-User-agent: *
-Allow: /
-Sitemap: https://muneefmumthas.github.io/hatrack/sitemap.xml
-```
-
-### E4. Check the share card
-
-Paste the website URL into https://www.opengraph.xyz and the repository URL into LinkedIn's Post Inspector (https://www.linkedin.com/post-inspector/). Both should show the Hatrack card.
+You can't submit a GitHub repo to Google Search Console, because you don't own `github.com`. Expect the repo to appear for searches like "Claude desktop second account Windows" a week or two after it starts getting links.
 
 ---
 
@@ -183,17 +155,15 @@ Paste the website URL into https://www.opengraph.xyz and the repository URL into
 1. Make your changes and update `CHANGELOG.md`.
 2. Raise `<Version>` in `src/Hatrack/Hatrack.csproj` (for example `0.2.1`).
 3. When you've tested a new Claude or Codex version, update `observedPackageVersion` in `compatibility.json`.
-4. Run Part A, then:
+4. Run Part A, then commit and push:
 
 ```powershell
 git add -A
 git commit -m "Hatrack 0.2.1 preview"
 git push
-git tag v0.2.1-preview.1
-git push origin v0.2.1-preview.1
 ```
 
-5. Repeat D2 to D4.
+5. Repeat D2 to D4 with the new version number.
 
 Never replace the installer inside a release that's already published. Publish a new version instead.
 

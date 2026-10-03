@@ -1,15 +1,16 @@
-<p align="center"><img src="assets/logo.svg" width="96" height="96" alt="Hatrack logo: a top hat on a shelf above two bowler hats"></p>
+<p align="center"><img src="assets/logo-animated.svg" width="112" height="112" alt="Hatrack logo: a top hat on a shelf above two bowler hats"></p>
 <h1 align="center">Hatrack</h1>
 <p align="center"><strong>Run multiple Claude Desktop and Codex Desktop accounts on Windows.</strong><br>Open a second account without signing out. A free, open-source account switcher with separate profiles, shortcuts and taskbar icons.</p>
+<p align="center"><img src="https://readme-typing-svg.demolab.com?font=DM+Sans&weight=600&size=22&pause=1400&color=8A8A90&center=true&vCenter=true&width=520&lines=Personal+account.;Work+account.;Client+account.;One+click+each." alt="Personal account. Work account. Client account. One click each."></p>
 <p align="center">
-<a href="https://github.com/MuneefMumthas/hatrack/releases"><img alt="Latest release" src="https://img.shields.io/github/v/release/MuneefMumthas/hatrack?include_prereleases&label=release&color=161617"></a>
-<a href="https://github.com/MuneefMumthas/hatrack/releases"><img alt="Downloads" src="https://img.shields.io/github/downloads/MuneefMumthas/hatrack/total?color=161617"></a>
-<a href="https://github.com/MuneefMumthas/hatrack/actions/workflows/ci.yml"><img alt="Checks" src="https://img.shields.io/github/actions/workflow/status/MuneefMumthas/hatrack/ci.yml?branch=main&label=checks"></a>
-<a href="https://github.com/MuneefMumthas/hatrack/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/MuneefMumthas/hatrack?style=flat&color=161617"></a>
-<a href="LICENSE"><img alt="MIT licence" src="https://img.shields.io/badge/licence-MIT-161617"></a>
-<img alt="Windows 11 x64" src="https://img.shields.io/badge/Windows_11-x64-161617">
+<a href="https://github.com/MuneefMumthas/hatrack/releases/latest"><img alt="Latest release" src="https://img.shields.io/github/v/release/MuneefMumthas/hatrack?include_prereleases&style=for-the-badge&label=release&color=161617&labelColor=2b2b30"></a>
+<a href="https://github.com/MuneefMumthas/hatrack/releases"><img alt="Downloads" src="https://img.shields.io/github/downloads/MuneefMumthas/hatrack/total?style=for-the-badge&color=161617&labelColor=2b2b30"></a>
+<a href="https://github.com/MuneefMumthas/hatrack/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/MuneefMumthas/hatrack?style=for-the-badge&color=161617&labelColor=2b2b30"></a>
+<a href="LICENSE"><img alt="MIT licence" src="https://img.shields.io/badge/licence-MIT-161617?style=for-the-badge&labelColor=2b2b30"></a>
+<img alt="Windows 11 x64" src="https://img.shields.io/badge/Windows_11-x64-161617?style=for-the-badge&logo=windows11&logoColor=white&labelColor=2b2b30">
 </p>
-<p align="center"><a href="https://github.com/MuneefMumthas/hatrack/releases/latest"><strong>Download Hatrack-Setup.exe</strong></a> · <a href="https://muneefmumthas.github.io/hatrack/">Website</a> · <a href="https://muneefmumthas.github.io/hatrack/guides/">Guides</a></p>
+<p align="center"><a href="https://github.com/MuneefMumthas/hatrack/releases/latest/download/Hatrack-Setup.exe"><img alt="Download Hatrack-Setup.exe for Windows" src="https://img.shields.io/badge/Download_for_Windows-Hatrack--Setup.exe-161617?style=for-the-badge&logo=windows11&logoColor=white"></a></p>
+<p align="center"><a href="docs/guides/second-claude-account.md">Second account guide</a> · <a href="docs/README.md">All docs</a> · <a href="CHANGELOG.md">Changelog</a></p>
 
 ![Hatrack listing a Claude Desktop profile and a Codex Desktop profile, each with its own icon](docs/images/desktop.png)
 
@@ -110,7 +111,7 @@ No telemetry, no Hatrack account, no uploads. Profile data lives under `%LOCALAP
 
 ## Build from source
 
-Needs Windows, the .NET 10 SDK and Inno Setup 6. The website needs Node 22.12+.
+Needs Windows, the .NET 10 SDK and Inno Setup 6.
 
 ```powershell
 dotnet run --project tests/Hatrack.Tests -c Release
@@ -118,6 +119,12 @@ powershell -ExecutionPolicy Bypass -File scripts/build.ps1
 ```
 
 See [contributing](CONTRIBUTING.md), [publishing a release](docs/PUBLISHING.md) and [the launch plan](docs/LAUNCH.md).
+
+## Built with
+
+<p><img src="https://skillicons.dev/icons?i=cs,dotnet,windows,powershell,git,github&theme=dark" alt="C#, .NET, Windows, PowerShell, Git, GitHub"></p>
+
+<img alt=".NET 10" src="https://img.shields.io/badge/.NET_10-512BD4?style=for-the-badge&logo=dotnet&logoColor=white"> <img alt="C#" src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&logoColor=white"> <img alt="WPF" src="https://img.shields.io/badge/WPF-161617?style=for-the-badge&logo=windows11&logoColor=white"> <img alt="Inno Setup" src="https://img.shields.io/badge/Inno_Setup_6-264B99?style=for-the-badge&logoColor=white"> <img alt="PowerShell" src="https://img.shields.io/badge/PowerShell-5391FE?style=for-the-badge&logo=powershell&logoColor=white">
 
 ## Contributing
 
@@ -128,3 +135,14 @@ If Hatrack saves you from signing in and out, a star helps other people find it.
 ## Licence
 
 MIT © 2026 Muneef Mumthas. Claude and Codex logos and names belong to their owners and are not covered by the MIT licence. Hatrack is not affiliated with or endorsed by Anthropic or OpenAI. See [notices](THIRD-PARTY-NOTICES.md).
+
+## Star history
+
+<a href="https://star-history.com/#MuneefMumthas/hatrack&Date">
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=MuneefMumthas/hatrack&type=Date&theme=dark">
+<img alt="Star history chart for Hatrack" src="https://api.star-history.com/svg?repos=MuneefMumthas/hatrack&type=Date">
+</picture>
+</a>
+
+<p align="center"><img src="https://capsule-render.vercel.app/api?type=waving&color=0:2b2b30,100:161617&height=110&section=footer" alt="" width="100%"></p>

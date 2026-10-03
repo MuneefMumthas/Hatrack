@@ -4,5 +4,5 @@ contact_links:
     url: https://github.com/MuneefMumthas/hatrack/security/advisories/new
     about: Report credential exposure or profile crossover privately.
   - name: Setup guides
-    url: https://muneefmumthas.github.io/hatrack/guides/
+    url: https://github.com/MuneefMumthas/hatrack/tree/main/docs
     about: Installation, icons, troubleshooting and privacy.

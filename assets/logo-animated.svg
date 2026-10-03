@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+<title>Hatrack</title>
+<style>
+.h{transform-box:fill-box;transform-origin:50% 100%}
+.top{animation:tip 4.8s ease-in-out infinite}
+.l{animation:hop 4.8s ease-in-out infinite}
+.r{animation:hop 4.8s ease-in-out .18s infinite}
+@keyframes hop{0%,52%,68%,100%{transform:none}58%{transform:translateY(-3px)}63%{transform:translateY(.4px)}}
+@keyframes tip{0%,70%,100%{transform:none}78%{transform:translate(2px,-7px) rotate(-14deg)}86%{transform:translate(1px,-6px) rotate(-12deg)}94%{transform:none}}
+@media (prefers-reduced-motion:reduce){.top,.l,.r{animation:none}}
+</style>
+<rect width="256" height="256" rx="56" fill="#161617"/>
+<g fill="#fff" transform="translate(40 40) scale(2.75)">
+<rect x="12" y="29.5" width="40" height="4.5" rx="2.25"/>
+<rect x="2" y="58" width="60" height="4.5" rx="2.25"/>
+<g class="h top"><rect x="24.5" y="2" width="15" height="21" rx="2.5"/><rect x="19" y="21" width="26" height="5" rx="2.5"/></g>
+<g class="h l"><path d="M7 52V45A9 9 0 0 1 25 45V52Z"/><rect x="3" y="50" width="26" height="5" rx="2.5"/></g>
+<g class="h r"><path d="M39 52V45A9 9 0 0 1 57 45V52Z"/><rect x="35" y="50" width="26" height="5" rx="2.5"/></g>
+</g>
+</svg>

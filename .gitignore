@@ -4,7 +4,6 @@ dist/
 artifacts/
 .tools/
 node_modules/
-.astro/
 .vs/
 *.user
 *.pfx
@@ -15,3 +14,4 @@ catalog.json
 catalog.json.bak
 compatibility.local.json
 .claude/
+release-notes.md

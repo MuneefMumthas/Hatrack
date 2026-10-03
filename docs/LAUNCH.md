@@ -5,7 +5,7 @@ Stars follow attention, and attention follows a clear demo shown to people who a
 ## Before launch day
 
 - [ ] Published prerelease with `Hatrack-Setup.exe` ([PUBLISHING.md](PUBLISHING.md)).
-- [ ] Website live, social preview uploaded, topics set.
+- [ ] Social preview uploaded and topics set.
 - [ ] **A 20–30 second demo.** This is the single biggest lever. Record with [ScreenToGif](https://www.screentogif.com/) or the Windows Snipping Tool: install, create a "Work" profile, recolour its icon, open it next to "Personal", and show both taskbar icons. Use disposable accounts and hide email addresses. Export an MP4 for LinkedIn and X, and a GIF under 10 MB for the top of the README.
 - [ ] Pin the repository on your GitHub profile and add one line about it to your profile README.
 - [ ] Label two or three small issues `good first issue` so visitors have a way in.
