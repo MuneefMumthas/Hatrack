@@ -12,7 +12,7 @@
 <p align="center"><a href="https://github.com/MuneefMumthas/hatrack/releases/latest/download/Hatrack-Setup.exe"><img alt="Download Hatrack-Setup.exe for Windows" src="https://img.shields.io/badge/Download_for_Windows-Hatrack--Setup.exe-161617?style=for-the-badge&logo=windows11&logoColor=white"></a></p>
 <p align="center"><a href="docs/guides/second-claude-account.md">Second account guide</a> · <a href="docs/README.md">All docs</a> · <a href="CHANGELOG.md">Changelog</a></p>
 
-![Hatrack listing a Claude Desktop profile and a Codex Desktop profile, each with its own icon](docs/images/desktop.png)
+<p align="center"><a href="docs/images/hatrack-demo.mp4"><img src="docs/images/hatrack-demo.webp" width="600" alt="Hatrack demo: creating a Work profile and opening two Claude Desktop accounts side by side on one Windows desktop"></a></p>
 
 Claude Desktop and Codex Desktop sign in to one account at a time. If you have a personal account, a work account and a client account, you sign out and back in all day, and you can't keep two accounts open side by side. Hatrack gives each account its own **profile**: a separate data folder, a Desktop and Start Menu shortcut, and its own taskbar icon. Click the hat you need.
 
