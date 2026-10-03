@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security problem
+    url: https://github.com/MuneefMumthas/hatrack/security/advisories/new
+    about: Report credential exposure or profile crossover privately.
+  - name: Setup guides
+    url: https://muneefmumthas.github.io/hatrack/guides/
+    about: Installation, icons, troubleshooting and privacy.

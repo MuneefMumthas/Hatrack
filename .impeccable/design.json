@@ -1,0 +1,191 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-03T11:58:49.136Z",
+  "title": "Design System: Hatrack",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "primary",
+        "displayName": "Monochrome action and text"
+      },
+      "dark-ink": {
+        "role": "primary",
+        "displayName": "Dark-mode text and action"
+      },
+      "claude-default": {
+        "displayName": "Claude profile default",
+        "purpose": "Profile colour, preserving the vendor source silhouette."
+      },
+      "codex-default": {
+        "displayName": "Codex profile default",
+        "purpose": "Profile colour, preserving the vendor source silhouette."
+      }
+    },
+    "typographyMeta": {
+      "native-body": {
+        "displayName": "Native text",
+        "purpose": "WPF device-independent sizing."
+      },
+      "web-display": {
+        "displayName": "Website display",
+        "purpose": "Self-hosted DM Sans Variable with balanced heading wrapping."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "web-stage-arrival",
+        "value": "arrive .65s cubic-bezier(.16,1,.3,1) both",
+        "purpose": "translateY(16px)/blur(2px) to resting state. Removed under reduced motion."
+      },
+      {
+        "name": "web-button",
+        "value": "opacity .18s ease",
+        "purpose": "Hover opacity .8. Removed under reduced motion."
+      },
+      {
+        "name": "native-popup",
+        "value": "Fade",
+        "purpose": "WPF ComboBox popup animation."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact-web",
+        "value": "1000px"
+      },
+      {
+        "name": "mobile-web",
+        "value": "700px"
+      }
+    ],
+    "nativeStates": {
+      "button": {
+        "hoverOpacity": 0.78,
+        "pressedOpacity": 0.6,
+        "disabledOpacity": 0.55,
+        "focusBorder": "2 device-independent units, Ink"
+      },
+      "input": {
+        "focusBorder": "2 device-independent units, Ink",
+        "disabledOpacity": 0.55
+      },
+      "checkbox": {
+        "checked": "Accent fill, OnAccent check",
+        "focusBorder": "2 device-independent units, Ink"
+      },
+      "slider": {
+        "trackHeight": 4,
+        "thumbSize": 19,
+        "focusedThumbSize": 23
+      },
+      "profileRow": {
+        "selectedBorder": "Line",
+        "keyboardBorder": "Ink"
+      }
+    },
+    "preview": {
+      "large": "White inspection tile in both themes.",
+      "taskbar": "Two 32-unit images on fixed light and dark grounds."
+    },
+    "rights": {
+      "productMark": "Original monochrome Hatrack mark: a top hat on an upper shelf above two bowler hats on a lower shelf.",
+      "vendorMarks": "Exact Claude and Codex source silhouettes retain vendor rights; excluded from original MIT artwork."
+    }
+  },
+  "components": [
+    {
+      "name": "Native secondary button",
+      "kind": "button",
+      "refersTo": "native-button",
+      "description": "HTML representation of shared WPF rounded-button geometry and states.",
+      "html": "<button class=\"ds-button\">Edit</button>",
+      "css": ".ds-button{font-family:'Segoe UI',sans-serif;font-size:14px;font-weight:500;min-height:42px;padding:10px 16px;background:#fff;color:#161617;border:1px solid #c7c7cd;border-radius:11px;cursor:pointer}.ds-button:hover{opacity:.78}.ds-button:active{opacity:.6}.ds-button:focus-visible{outline:none;border:2px solid #161617}.ds-button:disabled{opacity:.55;cursor:default}"
+    },
+    {
+      "name": "Native primary button",
+      "kind": "button",
+      "refersTo": "native-primary",
+      "description": "Light-mode inverse action. Dark theme uses near-white fill with dark text.",
+      "html": "<button class=\"ds-button ds-primary\">Create profile</button>",
+      "css": ".ds-button{font-family:'Segoe UI',sans-serif;font-size:14px;font-weight:500;min-height:42px;padding:10px 16px;background:#fff;color:#161617;border:1px solid #c7c7cd;border-radius:11px;cursor:pointer}.ds-button:hover{opacity:.78}.ds-button:active{opacity:.6}.ds-button:focus-visible{outline:none;border:2px solid #161617}.ds-button:disabled{opacity:.55;cursor:default}.ds-primary{background:#161617;color:#fff;border-color:#161617}"
+    },
+    {
+      "name": "Native text field",
+      "kind": "input",
+      "refersTo": "native-input",
+      "description": "Shared field geometry and visible focus; the editor explicitly uses a 40-unit minimum.",
+      "html": "<label class=\"ds-label\">Profile name<input class=\"ds-input\" value=\"Personal\"/></label>",
+      "css": ".ds-label{font-family:'Segoe UI',sans-serif;font-size:14px;color:#161617;display:block;font-weight:600}.ds-input{display:block;margin-top:7px;font-family:'Segoe UI',sans-serif;font-size:14px;min-height:44px;padding:11px 13px;color:#161617;background:#fff;border:1px solid #c7c7cd;border-radius:11px;caret-color:#161617}.ds-input:focus-visible{outline:none;border:2px solid #161617}.ds-input::selection{background:#dcdce1;color:#161617}.ds-input:disabled{opacity:.55}"
+    },
+    {
+      "name": "Native dropdown",
+      "kind": "input",
+      "description": "HTML field representation; native popup has rounded highlighted/selected rows and a 320-unit scroll cap.",
+      "html": "<select class=\"ds-select\" aria-label=\"Desktop app\"><option>Claude</option><option>Codex</option></select>",
+      "css": ".ds-select{font-family:'Segoe UI',sans-serif;font-size:14px;color:#161617;min-height:44px;padding:10px 38px 10px 13px;background:#fff;border:1px solid #c7c7cd;border-radius:11px}.ds-select:hover{background:#e7e7eb}.ds-select:focus-visible{outline:none;border:2px solid #161617}.ds-select:disabled{opacity:.55}"
+    },
+    {
+      "name": "Native selected navigation",
+      "kind": "nav",
+      "description": "Selected row has Hover fill and semibold text; other navigation buttons remain transparent.",
+      "html": "<nav class=\"ds-nav\"><button class=\"ds-button ds-current\">All profiles</button><button class=\"ds-button ds-plain\">Favourites</button></nav>",
+      "css": ".ds-button{font-family:'Segoe UI',sans-serif;font-size:14px;font-weight:500;min-height:42px;padding:10px 16px;background:#fff;color:#161617;border:1px solid #c7c7cd;border-radius:11px;cursor:pointer}.ds-button:hover{opacity:.78}.ds-button:active{opacity:.6}.ds-button:focus-visible{outline:none;border:2px solid #161617}.ds-button:disabled{opacity:.55;cursor:default}.ds-nav{display:flex;flex-direction:column;gap:10px}.ds-nav .ds-button{text-align:left}.ds-current{background:#e7e7eb;border-color:transparent;font-weight:600}.ds-plain{background:transparent;border-color:transparent}"
+    },
+    {
+      "name": "Native checkbox",
+      "kind": "input",
+      "description": "Monochrome checked square and keyboard border represented in HTML.",
+      "html": "<label class=\"ds-check\"><input type=\"checkbox\" checked/>Desktop shortcut</label>",
+      "css": ".ds-check{font-family:'Segoe UI',sans-serif;font-size:14px;color:#161617;display:inline-flex;align-items:center;gap:10px;min-height:32px;cursor:pointer}.ds-check input{appearance:none;width:20px;height:20px;border:1px solid #c7c7cd;border-radius:6px;background:#fff;margin:0}.ds-check input:checked{background:#161617}.ds-check input:checked:after{content:'✓';display:block;color:#fff;text-align:center;font-size:16px;line-height:18px}.ds-check input:focus-visible{outline:none;border:2px solid #161617}.ds-check input:disabled{opacity:.55}"
+    },
+    {
+      "name": "Native advanced expander",
+      "kind": "custom",
+      "description": "Size/crop/background controls collapse behind a custom Inset header; shortcut/favourite controls remain outside.",
+      "html": "<details class=\"ds-advanced\"><summary>Size, crop and background</summary><div>Image size / padding<br/>Crop horizontal<br/>Crop vertical<br/>Icon background</div></details>",
+      "css": ".ds-advanced{font-family:'Segoe UI',sans-serif;font-size:14px;color:#161617;}.ds-advanced summary{cursor:pointer;background:#eeeef0;padding:12px 13px;border-radius:11px}.ds-advanced div{margin-top:8px;line-height:2}"
+    },
+    {
+      "name": "Native profile row",
+      "kind": "card",
+      "refersTo": "native-profile-row",
+      "description": "Flexible name/metadata column, persistent Open/Edit actions, and rounded surface.",
+      "html": "<div class=\"ds-profile\"><div class=\"ds-profile-copy\"><strong>Personal</strong><p>Claude Desktop · Separate local data</p></div><button class=\"ds-button\">Open</button><button class=\"ds-button\">Edit</button></div>",
+      "css": ".ds-button{font-family:'Segoe UI',sans-serif;font-size:14px;font-weight:500;min-height:42px;padding:10px 16px;background:#fff;color:#161617;border:1px solid #c7c7cd;border-radius:11px;cursor:pointer}.ds-button:hover{opacity:.78}.ds-button:active{opacity:.6}.ds-button:focus-visible{outline:none;border:2px solid #161617}.ds-button:disabled{opacity:.55;cursor:default}.ds-profile{font-family:'Segoe UI',sans-serif;font-size:14px;color:#161617;display:flex;align-items:center;gap:8px;background:#fff;border-radius:16px;padding:18px}.ds-profile-copy{flex:1;min-width:0}.ds-profile-copy strong{display:block;font-size:17px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.ds-profile-copy p{margin:5px 0 0;color:#626267;font-size:12px}"
+    },
+    {
+      "name": "Website download button",
+      "kind": "button",
+      "refersTo": "web-button",
+      "description": "Pill action bound to live website theme properties, with opacity hover and visible focus.",
+      "html": "<a class=\"ds-download\" href=\"#download\">Get Hatrack for Windows<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 4v12m-5-5 5 5 5-5M5 20h14\"/></svg></a>",
+      "css": ".ds-download{display:inline-flex;align-items:center;justify-content:center;gap:14px;background:var(--accent,#161617);color:var(--on-accent,#fff);padding:17px 25px;border-radius:30px;text-decoration:none;font-family:'DM Sans Variable',sans-serif;font-size:15px;font-weight:600;transition:opacity .18s ease}.ds-download:hover{opacity:.8}.ds-download:focus-visible{outline:2px solid var(--ink,#161617);outline-offset:5px}.ds-download svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}@media(prefers-reduced-motion:reduce){.ds-download{transition:none}}"
+    }
+  ],
+  "narrative": {
+    "overview": "The approved direction is monochrome, rounded, and precise, with the requested craft references of Apple and Revolut Wallet. The desktop implementation uses a shared custom WPF theme for buttons, dropdowns, inputs, sliders, checkboxes, expanders, list focus, and scrollbars. Practical headings and task labels establish the hierarchy. Colour belongs to profile marks and their picker, while product chrome remains black, white, and neutral grey.\n\nProfiles retains its two-shelf hat rack mark in monochrome. Claude and Codex marks are exact source silhouettes recoloured through opacity masks for profile icons. These vendor marks retain their respective rights and are not original MIT artwork. The application remains independently branded.",
+    "keyCharacteristics": [
+      "Monochrome surfaces with distinct light and dark text contrast.",
+      "Custom rounded controls with visible keyboard and selection states.",
+      "Recolourable app marks and preserved legacy profile icons.",
+      "Practical copy and explicit preview status."
+    ],
+    "rules": [],
+    "dos": [
+      "Do preserve the original monochrome Hatrack product mark.",
+      "Do use colour for profile marks and picker output.",
+      "Do retain exact vendor silhouettes and identify their separate rights.",
+      "Do preserve legacy profile artwork when editing.",
+      "Do retain readable contrast, visible control states, recovery actions, and preview labels.",
+      "Do keep screenshot evidence in `docs/images` and `artifacts/visual`."
+    ],
+    "donts": [
+      "Don't add glows, decorative shadows, em dashes, or vague slogans.",
+      "Don't treat vendor source marks as original MIT artwork.",
+      "Don't replace the custom control system with default platform templates.",
+      "Don't present demonstration profiles or visual review as authenticated-session acceptance.",
+      "Don't publish stable-release claims before the acceptance gates are evidenced."
+    ]
+  }
+}

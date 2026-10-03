@@ -1,0 +1,25 @@
+name: Desktop bug report
+description: Report a reproducible problem without account secrets
+body:
+  - type: input
+    id: versions
+    attributes:
+      label: Windows, Hatrack, and vendor desktop versions
+    validations:
+      required: true
+  - type: dropdown
+    id: app
+    attributes:
+      label: Desktop app
+      options: [Claude Desktop, Codex Desktop, Hatrack]
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps and expected result
+      description: Never include tokens, auth.json, cookies, or private conversations.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result and safe diagnostics

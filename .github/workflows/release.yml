@@ -1,0 +1,41 @@
+name: Draft Windows release
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: write
+jobs:
+  installer:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - name: Install installer compiler
+        run: choco install innosetup --no-progress -y
+      - name: Build and enforce compatibility gate
+        shell: pwsh
+        run: |
+          $tag='${{ github.ref_name }}'
+          $version=($tag.TrimStart('v') -split '-')[0]
+          if ($tag -match '-preview|\-rc|\-beta|\-alpha') {
+            ./scripts/build.ps1 -Version $version
+          } else {
+            ./scripts/build.ps1 -Version $version -Stable
+          }
+      - name: Check the release installer in an isolated installation
+        shell: pwsh
+        run: ./scripts/test-installer.ps1
+      - name: Create draft with verified build assets
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $preview='${{ github.ref_name }}' -match '-preview|\-rc|\-beta|\-alpha'
+          $notes="Hatrack desktop-only Windows installer. See compatibility.json and docs/ACCEPTANCE.md for verification status. This build is unsigned unless signing is configured. Profile data is preserved during uninstall."
+          $notes | Set-Content release-notes.txt
+          $args=@('release','create','${{ github.ref_name }}','dist/Hatrack-Setup.exe','dist/SHA256SUMS.txt','dist/THIRD-PARTY-NOTICES.md','compatibility.json','docs/BUILD-VERIFICATION.md','--draft','--title','Hatrack ${{ github.ref_name }}','--notes-file','release-notes.txt')
+          if($preview){$args+='--prerelease'}
+          & gh @args
+          if($LASTEXITCODE -ne 0){throw 'Draft creation failed'}

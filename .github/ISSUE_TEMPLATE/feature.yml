@@ -1,0 +1,20 @@
+name: Feature request
+description: Suggest an improvement for Hatrack
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do?
+      description: Describe the situation, not only the solution. For example, "I switch between three Claude accounts every day and..."
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would help?
+  - type: dropdown
+    id: app
+    attributes:
+      label: Desktop app
+      options: [Claude Desktop, Codex Desktop, Both, Hatrack itself]

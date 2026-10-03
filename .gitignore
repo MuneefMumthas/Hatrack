@@ -1,0 +1,17 @@
+bin/
+obj/
+dist/
+artifacts/
+.tools/
+node_modules/
+.astro/
+.vs/
+*.user
+*.pfx
+*.p12
+*.log
+auth.json
+catalog.json
+catalog.json.bak
+compatibility.local.json
+.claude/

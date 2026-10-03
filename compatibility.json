@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "releaseReady": false,
+  "platform": "Windows 11 x64",
+  "desktopOnly": true,
+  "reason": "Authenticated desktop isolation, fresh-machine installer acceptance, accessibility, and vendor-update acceptance require recorded verification.",
+  "apps": {
+    "Claude": {
+      "observedPackageVersion": "2.19675.0.0",
+      "independentAuthenticationVerified": false
+    },
+    "Codex": {
+      "observedPackageVersion": "26.930.2377.0",
+      "independentAuthenticationVerified": false
+    }
+  },
+  "localVerification": {
+    "simultaneousDesktopWindows": true,
+    "distinctWindowAppIds": true,
+    "authenticatedSessions": false,
+    "report": "docs/BUILD-VERIFICATION.md",
+    "date": "2026-10-03",
+    "isolatedInstallerLifecycle": true
+  }
+}

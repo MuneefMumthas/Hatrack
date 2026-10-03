@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType><TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF><UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>disable</ImplicitUsings><Nullable>enable</Nullable>
+    <EnableDefaultApplicationDefinition>false</EnableDefaultApplicationDefinition>
+    <StartupObject>Hatrack.Program</StartupObject><AssemblyName>Hatrack</AssemblyName>
+    <Version>0.2.0</Version><Authors>Muneef Mumthas</Authors>
+    <ApplicationIcon Condition="Exists('../../assets/hatrack.ico')">../../assets/hatrack.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup><EmbeddedResource Include="../../compatibility.json" LogicalName="Hatrack.compatibility.json" /></ItemGroup>
+  <ItemGroup><EmbeddedResource Include="../../assets/vendor/claude-mark.png" LogicalName="Hatrack.claude-mark.png"/><EmbeddedResource Include="../../assets/vendor/codex-mark.png" LogicalName="Hatrack.codex-mark.png"/></ItemGroup>
+</Project>
